@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Techinfo2019.Models.Mobile>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="homePage">
+    <div class="heading">
+        Tech Info
+
+    </div>
+    <hr />
+    <div id="topNav">
+        @using (Html.BeginForm())
+        {
+        <p>
+            Name: @Html.TextBox("SearchString")
+
+            &nbsp;&nbsp;  Brand: @Html.DropDownList("Brand", "All") &nbsp;
+            
+
+            <input class="btn btn-outline-primary" type="submit" value="Filter" />
+            <button class="btn btn-outline-primary"> @Html.ActionLink("Add a new Model", "Create")</button>
+        </p>
+        }
+    </div>
+    <hr />
+    <table class="table frontPage">
+        <thead>
+            <tr id="tableHead">
+
+                @* <th>@Html.DisplayNameFor(model => model.MobileName) </th>*@
+                <th>Product</th>
+
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+
+                <th>@Html.DisplayNameFor(model => model.Brand)</th>
+                <th>Photo</th>
+                <th>LButton</th>
+                <th> Likes </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="@item.slNo">
+
+                    @Html.Action("_TableRow", new { id = item.slNo })
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    
+</section>

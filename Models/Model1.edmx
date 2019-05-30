@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DEMO1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MobileDetails">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MobileId" Type="int" />
+          <Property Name="Features" Type="nvarchar" MaxLength="600" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="SimType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mobiles">
+          <Key>
+            <PropertyRef Name="slNo" />
+          </Key>
+          <Property Name="slNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MobileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="money" />
+          <Property Name="url" Type="nvarchar" MaxLength="350" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Cheer" Type="int" />
+        </EntityType>
+        <Association Name="FK_MobileDetails_Mobiles">
+          <End Role="Mobiles" Type="Self.Mobiles" Multiplicity="0..1" />
+          <End Role="MobileDetails" Type="Self.MobileDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mobiles">
+              <PropertyRef Name="slNo" />
+            </Principal>
+            <Dependent Role="MobileDetails">
+              <PropertyRef Name="MobileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DEMO1ModelStoreContainer">
+          <EntitySet Name="MobileDetails" EntityType="Self.MobileDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mobiles" EntityType="Self.Mobiles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MobileDetails_Mobiles" Association="Self.FK_MobileDetails_Mobiles">
+            <End Role="Mobiles" EntitySet="Mobiles" />
+            <End Role="MobileDetails" EntitySet="MobileDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DEMO1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MobileDetail">
+          <Key>
+            <PropertyRef Name="SLNO" />
+          </Key>
+          <Property Name="SLNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobileId" Type="Int32" />
+          <Property Name="Features" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SimType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Mobile" Relationship="Self.FK_MobileDetails_Mobiles" FromRole="MobileDetails" ToRole="Mobiles" />
+        </EntityType>
+        <EntityType Name="Mobile">
+          <Key>
+            <PropertyRef Name="slNo" />
+          </Key>
+          <Property Name="slNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="url" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cheer" Type="Int32" />
+          <NavigationProperty Name="MobileDetails" Relationship="Self.FK_MobileDetails_Mobiles" FromRole="Mobiles" ToRole="MobileDetails" />
+        </EntityType>
+        <Association Name="FK_MobileDetails_Mobiles">
+          <End Role="Mobiles" Type="Self.Mobile" Multiplicity="0..1" />
+          <End Role="MobileDetails" Type="Self.MobileDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mobiles">
+              <PropertyRef Name="slNo" />
+            </Principal>
+            <Dependent Role="MobileDetails">
+              <PropertyRef Name="MobileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DEMO1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MobileDetails" EntityType="Self.MobileDetail" />
+          <EntitySet Name="Mobiles" EntityType="Self.Mobile" />
+          <AssociationSet Name="FK_MobileDetails_Mobiles" Association="Self.FK_MobileDetails_Mobiles">
+            <End Role="Mobiles" EntitySet="Mobiles" />
+            <End Role="MobileDetails" EntitySet="MobileDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DEMO1ModelStoreContainer" CdmEntityContainer="DEMO1Entities">
+          <EntitySetMapping Name="MobileDetails">
+            <EntityTypeMapping TypeName="DEMO1Model.MobileDetail">
+              <MappingFragment StoreEntitySet="MobileDetails">
+                <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+                <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="SimType" ColumnName="SimType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mobiles">
+            <EntityTypeMapping TypeName="DEMO1Model.Mobile">
+              <MappingFragment StoreEntitySet="Mobiles">
+                <ScalarProperty Name="slNo" ColumnName="slNo" />
+                <ScalarProperty Name="MobileName" ColumnName="MobileName" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cheer" ColumnName="Cheer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

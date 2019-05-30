@@ -1,0 +1,116 @@
+﻿@model Techinfo2019.Models.Mobile
+
+@Styles.Render("~/Content/forms.css")
+@{
+    ViewBag.Title = "Create";
+}
+
+  
+<div class="heading">
+    Add a New Model
+</div>
+<hr />
+<section class="frontPage">
+    <br /><br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+          <div class="form-horizontal">
+
+              <hr />
+              @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+              <div class="form-group">
+                  @Html.LabelFor(model => model.MobileName, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                      @Html.EditorFor(model => model.MobileName, new { htmlAttributes = new { @class = "form-control" } })
+                      @Html.ValidationMessageFor(model => model.MobileName, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                      @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                      @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                      @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                      @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+              <div class="form-group">
+                  @Html.LabelFor(m => m.url, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                      @Html.EditorFor(m => m.url, new { htmlAttributes = new { @class = "form-control" } })
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalPicture">?</button>
+                  </div>
+              </div>
+              @*<div class="form-group">
+                  @Html.LabelFor(model => model.url, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                      @Html.EditorFor(model => model.url, new { htmlAttributes = new { @class = "form-control" } })
+                      @Html.ValidationMessageFor(model => model.url, "", new { @class = "text-danger" })
+                  </div>
+              </div>*@
+
+              <div class="form-group">
+                  @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                      @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                      @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+
+              @*<div class="form-group">
+            @Html.LabelFor(model => model.Cheer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cheer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cheer, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+              <div class="retNav">
+                  <div class="col-md-offset-2 col-md-10">
+                      <input type="submit" value="Create" class="btn btn-outline-primary" />
+                      <button class="btn btn-outline-primary">  @Html.ActionLink("Back to List", "Index") </button>
+                  </div>
+              </div>
+              @*<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>*@
+          </div>
+
+        <div id="myModalPicture" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Getting a picture URL</h4>
+                    </div>
+                    <div class="modal-body modalStyle">
+                        <ol>
+                            <li>Find a picture on the web that you want to use</li>
+                            <li>Right-click on the picture</li>
+                            <li>Select 'Copy image address' from the menu</li>
+                            <li>Paste into the field on the left</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</section>
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DEMO1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MobileDetails">
+    <Key>
+      <PropertyRef Name="SLNO" />
+    </Key>
+    <Property Name="SLNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MobileId" Type="int" />
+    <Property Name="Features" Type="nvarchar" MaxLength="600" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="SimType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Mobiles">
+    <Key>
+      <PropertyRef Name="slNo" />
+    </Key>
+    <Property Name="slNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MobileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="money" />
+    <Property Name="url" Type="nvarchar" MaxLength="350" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Cheer" Type="int" />
+  </EntityType>
+  <Association Name="FK_MobileDetails_Mobiles">
+    <End Role="Mobiles" Type="Self.Mobiles" Multiplicity="0..1" />
+    <End Role="MobileDetails" Type="Self.MobileDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mobiles">
+        <PropertyRef Name="slNo" />
+      </Principal>
+      <Dependent Role="MobileDetails">
+        <PropertyRef Name="MobileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DEMO1ModelStoreContainer">
+    <EntitySet Name="MobileDetails" EntityType="Self.MobileDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mobiles" EntityType="Self.Mobiles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MobileDetails_Mobiles" Association="Self.FK_MobileDetails_Mobiles">
+      <End Role="Mobiles" EntitySet="Mobiles" />
+      <End Role="MobileDetails" EntitySet="MobileDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,76 @@
+﻿@model Techinfo2019.Models.Mobile
+
+@Styles.Render("~/Content/forms.css")
+
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="heading"> Product Details</div>
+<hr/>
+<section class="frontPage">
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+
+
+
+        <dd><img src="@Html.DisplayFor(m => m.url)" height="250" width="200" /></dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cheer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cheer)
+        </dd>
+
+    </dl>
+    <div class="retNav">
+        <button class="btn btn-outline-primary">@Html.ActionLink("Edit", "Edit", new { id = Model.slNo })</button>
+        <p>|</p>
+        <button class="btn btn-outline-primary">  @Html.ActionLink("Back to list", "Index") </button>
+    </div>
+</section>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.slNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

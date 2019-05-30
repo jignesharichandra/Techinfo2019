@@ -1,0 +1,16 @@
+﻿body {
+    background: url('mill2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.frontPage {
+    background-color: #222930;
+     
+}
+
+.control-label:after {
+    content: ":"
+}

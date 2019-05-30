@@ -1,0 +1,66 @@
+﻿
+
+@model Techinfo2019.Models.Mobile
+
+<style type="text/css">
+    .pic {
+        position: absolute;
+        height: 75px;
+        width: 75px;
+        -webkit-transition: width 0.3s linear 0s;
+        transition: width 0.3s linear 0s;
+        content: none;
+        align-content: center;
+        background-color: transparent;
+    }
+
+    .picbig {
+        position: absolute;
+        width: 0px;
+        z-index: 10;
+        background-color: #808080;
+        
+    }
+
+    .pic:hover {
+        height: 200px;
+        width: 200px;
+        background-color: #808080;
+    }
+</style>
+
+<tr id="@Model.slNo">
+    @*<td> <img class="pic" src="@(Model.url)" alt="pic" /> </td>*@
+    <td class="centerContent">@Html.DisplayFor(m => Model.MobileName)</td>
+    <td class="centerContent">@Html.DisplayFor(m => Model.Price)</td>
+    <td class="centerContent">@Html.DisplayFor(m => Model.Brand)</td>
+    <td><img class="pic" src="@Url.Content(Model.url)" height="100" /> </td>
+    <td></td>
+    <td class="centerButtons">
+        @using (Ajax.BeginForm(
+                                          actionName: "Cheer",
+                                          controllerName: "Home",
+                                          routeValues: new { id = Model.slNo },
+                                          ajaxOptions: new AjaxOptions
+                                          {
+                                              UpdateTargetId = Model.slNo.ToString(),
+                                              InsertionMode = InsertionMode.ReplaceWith
+                                          }
+                                  ))
+        {
+            <input id="Cheer" type="submit" value="Like" class="btn btn-outline-primary">
+        }
+
+
+
+    </td>
+
+    <td class="centerContent">👍@Html.DisplayFor(m => Model.Cheer)</td>
+    <td class="centerButtons">
+        <button class="btn btn-outline-primary"> @Html.ActionLink("Edit", "Edit", new { id = Model.slNo })</button> |
+
+        <button class="btn btn-outline-primary"> @Html.ActionLink("Details", "Details", new { id = Model.slNo })</button> |
+
+        <button class="btn btn-outline-primary"> @Html.ActionLink("Delete", "Delete", new { id = Model.slNo })</button>
+    </td>
+</tr>

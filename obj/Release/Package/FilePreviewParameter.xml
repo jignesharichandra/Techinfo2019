@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="jarichandra-001-site3" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\JIGA\\source\\repos\\Techinfo2019\\Techinfo2019\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\JIGA\\source\\repos\\Techinfo2019\\Techinfo2019\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DEMO1Entities-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=sql7003.site4now.net;initial catalog=DB_A3D75A_jarichandra3;persist security info=True;user id=DB_A3D75A_jarichandra3_admin;password=Zxasqw12;trustservercertificate=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\JIGA\\source\\repos\\Techinfo2019\\Techinfo2019\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DEMO1Entities']/@connectionString" />
+  </parameter>
+</parameters>

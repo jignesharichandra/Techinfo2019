@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DEMO1ModelStoreContainer" CdmEntityContainer="DEMO1Entities">
+    <EntitySetMapping Name="MobileDetails">
+      <EntityTypeMapping TypeName="DEMO1Model.MobileDetail">
+        <MappingFragment StoreEntitySet="MobileDetails">
+          <ScalarProperty Name="SLNO" ColumnName="SLNO" />
+          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+          <ScalarProperty Name="Features" ColumnName="Features" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SimType" ColumnName="SimType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mobiles">
+      <EntityTypeMapping TypeName="DEMO1Model.Mobile">
+        <MappingFragment StoreEntitySet="Mobiles">
+          <ScalarProperty Name="slNo" ColumnName="slNo" />
+          <ScalarProperty Name="MobileName" ColumnName="MobileName" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cheer" ColumnName="Cheer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

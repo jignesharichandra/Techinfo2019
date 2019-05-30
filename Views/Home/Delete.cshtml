@@ -1,0 +1,43 @@
+﻿@model Techinfo2019.Models.Mobile
+
+@Styles.Render("~/Content/forms.css")
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="heading">
+    Are you sure want to delete this Product?
+</div>
+<hr />
+<section class="frontPage">
+    <br />
+    <dl class="dl-horizontal col-lg-4">
+        <dt>@Html.DisplayNameFor(model => model.MobileName):</dt>
+        <dd>@Html.DisplayFor(model => model.MobileName)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Brand):</dt>
+        <dd>@Html.DisplayFor(model => model.Brand)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Price):</dt>
+        <dd>@Html.DisplayFor(model => model.Price)</dd>
+        <dt>@Html.DisplayNameFor(model => model.url):</dt>
+        <dd><img class="pic" src="@(Model.url)" alt="pic" /> </dd>
+        <dt>@Html.DisplayNameFor(model => model.Description):</dt>
+        <dd>@Html.DisplayFor(model => model.Description)</dd>
+        <dt>Cheers:</dt>
+        <dd>&#128483;@Html.DisplayFor(model => model.Cheer)</dd>
+          
+    </dl>
+        
+    <div class="clearfix"></div>
+
+    <div class="retNav">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <input type="submit" value="Delete Product" class="btn btn-outline-primary" />
+                </div>
+            </div>
+        }
+        <button class="btn btn-outline-primary">  @Html.ActionLink("Back to List", "Index") </button>
+    </div>
+</section>

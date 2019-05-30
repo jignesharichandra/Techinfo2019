@@ -1,0 +1,159 @@
+﻿/* Color Palette
+rgb(48, 0, 50)
+rgb(6, 0, 10)
+rgb(196, 50, 53)
+rgb(230, 230, 232)
+*/
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+body {
+    background: url('leighKick.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.btn-outline-primary {
+    margin: 10px;
+    background-color: #E9E9E9;
+    border-color: rgb(48, 0, 50);
+}
+
+    .btn-outline-primary a {
+        color: rgb(6, 0, 10) !important;
+        text-decoration: none;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #ff5475;
+        text-decoration: none;
+    }
+
+.frontPage {
+    background-color: #222930;
+    color: #E9E9E9;
+    border: solid 2px rgb(48, 0, 50);
+    border-radius: 10px;
+    border-collapse: separate;
+}
+
+.frontPage td, th {
+   border-top-color: rgb(48, 0, 50) !important;
+   text-align: center;
+}
+
+    .frontPage dd a {
+        color: #E9E9E9;
+        text-decoration: underline;
+    }
+
+.centerContent {
+    padding: 48px 0 49px 0 !important;
+}
+
+.centerButtons {
+    padding: 30px 0 31px 0 !important;
+}
+
+h2, p {
+    color: #E9E9E9;
+}
+
+input, select {
+    color: rgb(6, 0, 10);
+    }
+
+#SearchString, select {
+    border-radius: 4px;
+    }
+
+#clubCountry {
+    min-height: 26px;
+}
+
+.heading {
+    font-size: 2em;
+    background-color: #222930;
+    color: #E9E9E9;
+    text-align: center;
+    border: solid 2px rgb(48, 0, 50);
+    border-radius: 5px 5px;
+}
+
+.mediaR dt {
+    text-align: left !important;
+    width: 120px
+}
+
+.mediaR dd {
+    
+    margin-left: 0 !important;
+}
+
+.frontpage dt, dd {
+    padding-bottom: 1.5em;
+}
+
+.retNav {
+    display: flex;
+    justify-content:center;
+}
+
+.retNav p {
+    margin: 1em 0;
+    vertical-align: middle;
+}
+
+#topNav {
+    font-weight: bold;
+}
+
+.form-control {
+    display: inline-block;
+}
+
+.btn-info {
+    background-color: rgb(48, 0, 50);
+    border-color: rgb(6, 0, 10);
+}
+
+.btn-info:hover, .btn-info:active, .btn-info:focus {
+    background-color: rgb(6, 0, 10);
+    border-color: rgb(230, 230, 232);
+}
+
+
+
+.modal-dialog {
+    color: rgb(6, 0, 10);
+}
+.img.pic {
+    background-color: #808080;
+}
+
+
